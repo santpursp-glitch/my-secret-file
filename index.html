@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Report</title>
+    <style>
+        body { font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .container { width: 90%; max-width: 400px; text-align: center; }
+        .card { border: 1px solid #dee2e6; border-radius: 8px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: left; }
+        input { width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ced4da; border-radius: 4px; box-sizing: border-box; font-size: 16px; }
+        input[readonly] { background-color: #e9ecef; }
+        button { width: 100%; padding: 12px; background-color: #007bff; color: white; border: none; border-radius: 4px; font-size: 16px; cursor: pointer; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Download Report</h2>
+    <p>If your Date of Birth is <b>15/06/1990</b><br>then enter <b>15061990</b></p>
+    <div class="card">
+        <label>Serial No</label>
+        <input type="text" id="serial" value="WV_706" readonly>
+        <label>Date of Birth</label>
+        <input type="text" id="dob" placeholder="उदा: 15061990" maxlength="8">
+        <button onclick="checkAndDownload()">Download</button>
+    </div>
+</div>
+<script>
+    function checkAndDownload() {
+        var serial = document.getElementById("serial").value;
+        var dob = document.getElementById("dob").value;
+        
+        var correctSerial = "WV_706";
+        var correctDOB = "15061990"; // यहाँ आप अपनी मनपसंद DOB रख सकते हैं
+        var certificateLink = "https://youtube.com/"; // यहाँ आपका लिंक आएगा
+
+        if (serial === correctSerial && dob === correctDOB) {
+            alert("सफलता! आपका फाइल खुल रहा है...");
+            window.open(certificateLink, "_blank");
+        } else {
+            alert("गलत Date of Birth! कृपया दोबारा प्रयास करें।");
+        }
+    }
+</script>
+</body>
+</html>
